@@ -7,13 +7,7 @@ import joblib
 import matplotlib
 from IPython import get_ipython
 from PIL import Image
-from sklearn.exceptions import InconsistentVersionWarning
-warnings.simplefilter("error", InconsistentVersionWarning)
 
-try:
-   est = pickle.loads("model_from_prevision_version.pickle")
-except InconsistentVersionWarning as w:
-   print(w.original_sklearn_version)
 # load the encoder and model object
 model = joblib.load("rta_model_deploy3.joblib")
 encoder = joblib.load("ordinal_encoder2.joblib")
